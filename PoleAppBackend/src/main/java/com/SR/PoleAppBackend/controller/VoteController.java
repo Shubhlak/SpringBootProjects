@@ -21,16 +21,8 @@ public class VoteController {
     private VoteService voteService;
 
   
-    @GetMapping
-    public List<Vote> getAllVotes() {
-        return voteService.getAllVotes();
-    }
 
-  
-    @GetMapping("/{voteId}")
-    public Vote getVoteById(@PathVariable Long voteId) {
-        return voteService.getVoteById(voteId);
-    }
+
 
 
     @GetMapping("/user/{userId}")
@@ -65,11 +57,7 @@ public class VoteController {
         }
     }
     
-   
-    @DeleteMapping("/{voteId}")
-    public void deleteVote(@PathVariable Long voteId) {
-        voteService.deleteVote(voteId);
-    }
+
 
 
     @GetMapping("/stats/{pollId}")

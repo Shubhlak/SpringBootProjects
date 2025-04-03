@@ -73,21 +73,7 @@ public class PollController {
                     .collect(Collectors.toList());
     }
 
-    @GetMapping("/{pollId}")
-    public PollDTO getPollById(@PathVariable Long pollId) {
-        Poll poll = pollService.getPollById(pollId);
-        PollDTO dto = modelMapper.map(poll, PollDTO.class);
-        Long userId = poll.getUser().getUserId();
-        User creator = userRepository.findById(userId).orElse(null);
-        if (creator != null) {
-            dto.setCreatedBy(creator.getFullName());
-            dto.setCreatedByUserId(creator.getUserId());
-        } else {
-            dto.setCreatedBy("Unknown");
-            dto.setCreatedByUserId(null);
-        }
-        return dto;
-    }
+ 
 
 
 

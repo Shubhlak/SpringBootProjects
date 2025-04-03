@@ -19,12 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-  
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
-    
+
   
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
@@ -42,29 +37,6 @@ public class UserController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-    
- 
-    @PostMapping
-    public ResponseEntity<?> createUser(@RequestBody User user) {
-        try {
-            User createdUser = userService.createUser(user);
-            return ResponseEntity.ok(createdUser);
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
-    
- 
-    @GetMapping("/{id:\\d+}")
-    public User getUserById(@PathVariable("id") Long userId) {
-        return userService.getUserById(userId);
-    }
-
-   
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable("id") Long userId) {
-        userService.deleteUser(userId);
-    } 
     
     // Logout endpoint
     @PostMapping("/logout/{userId}")
