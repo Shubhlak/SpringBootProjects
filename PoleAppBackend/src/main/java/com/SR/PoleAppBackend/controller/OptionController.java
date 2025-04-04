@@ -11,7 +11,7 @@ import com.SR.PoleAppBackend.entity.Option;
 @RestController
 @RequestMapping("/api/options")
 @CrossOrigin
-public class OptionController {
+public class OptionController { 
 
     @Autowired
     private OptionService optionService;
@@ -22,7 +22,7 @@ public class OptionController {
         return optionService.getAllOptions();
     }
 
-
+   
     @GetMapping("/{id}")
     public Option getOptionById(@PathVariable Long id) {
         return optionService.getOptionById(id);

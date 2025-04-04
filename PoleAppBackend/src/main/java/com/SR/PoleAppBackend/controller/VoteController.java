@@ -20,11 +20,6 @@ public class VoteController {
     @Autowired
     private VoteService voteService;
 
-  
-
-
-
-
     @GetMapping("/user/{userId}")
     public List<VoteHistoryDTO> getVotesByUser(@PathVariable Long userId) {
         List<VoteHistoryDTO> voteHistory = voteService.getVoteHistoryByUser(userId);
